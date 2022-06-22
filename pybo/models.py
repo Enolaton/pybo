@@ -30,3 +30,9 @@ class Comment(models.Model):
     question = models.ForeignKey(Question, null=True, blank=True, on_delete=models.CASCADE)
     answer = models.ForeignKey(Answer, null=True, blank=True, on_delete=models.CASCADE)
 
+class QuestionCount(models.Model):
+    ip = models.CharField(max_length=30)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    def __unicode__(self):
+        return self.ip
